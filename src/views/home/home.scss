@@ -1,0 +1,71 @@
+@import "./../../styles/variables";
+.home-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  .country-list-wrapper {
+    display: flex;
+    gap: 1rem;
+    ul {
+      list-style: none;
+      cursor: pointer;
+      li {
+        padding: 0.5rem;
+        background: $primary-color;
+        margin-bottom: 0.5rem;
+        color: $white-color;
+        font-size: 0.75rem;
+        border-radius: 5px;
+        transition: all 0.5s ease-in-out;
+        &:hover,
+        &.active {
+          background: $grey-80;
+        }
+      }
+    }
+  }
+  .country-detail {
+    .card-wrapper {
+      display: flex;
+      flex-flow: row wrap;
+      gap: 1rem;
+      .card-item {
+        padding: 1rem;
+        background: $primary-color;
+        border-radius: 5px;
+        width: 200px;
+        box-shadow: 5px 5px 20px $grey-80;
+        cursor: pointer;
+        .title-wrapper {
+          display: flex;
+          gap: 1rem;
+          justify-content: space-between;
+          align-items: center;
+          h4 {
+            font-size: 0.96rem;
+            color: $white-color;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+          i {
+            color: $white-color;
+          }
+          margin-bottom: 0.5rem;
+        }
+        .desc {
+          color: $white-color;
+          .item-group {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.8rem;
+            h5 {
+              font-size: 0.81rem;
+              width: 40%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+.form-group {
+  display: flex;
+  flex-flow: column;
+  label {
+    color: $black-color;
+    font-size: 0.875rem;
+    margin-bottom: 4px;
+  }
+  .form-input {
+    background-color: $grey-30;
+    border: 2px solid transparent;
+    font-size: 0.875rem;
+    padding: 6.5px 16px 6.5px 5px !important;
+    transition: 0.4s all;
+    color: $black-color;
+    border-radius: 5px;
+    height: 35px;
+    &:hover {
+      border-color: $grey-40;
+    }
+    &:focus {
+      border-color: $grey-50 !important;
+      background-color: $grey-30 !important;
+      outline: none;
+    }
+    &:focus-visible {
+      border-color: $grey-50 !important;
+    }
+    ::placeholder,
+    ::-moz-placeholder {
+      color: $grey-60;
+    }
+    &:disabled {
+      cursor: not-allowed;
+      color: $grey-10;
+    }
+    &:required {
+      border-color: $error-color;
+    }
+  }
+}
+.error-msg {
+  font-size: 0.75rem;
+  color: $error-color;
+}

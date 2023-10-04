@@ -1,0 +1,40 @@
+@import "./../../styles/variables";
+.sidebar-wrapper {
+  background: $primary-color;
+  width: 110px;
+  padding: 0 1.7rem;
+  color: $white-color;
+  transition: all 0.5s linear;
+  &:hover {
+    width: 240px;
+    transition: 0.5s;
+  }
+  .menu {
+    list-style: none;
+    li {
+      a {
+        padding: 1rem;
+        margin: 8px 0;
+        border-radius: 8px;
+        transition: all 0.5s ease-in-out;
+        color: $white-color;
+        font-size: 1rem;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        &:hover,
+        &.active {
+          background: #e0e0e058;
+        }
+        span {
+          overflow: hidden;
+        }
+        i {
+          font-size: 1.2rem;
+          width: 1.2rem;
+        }
+      }
+    }
+  }
+}

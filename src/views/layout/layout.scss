@@ -1,0 +1,14 @@
+@import "./../../styles/variables";
+
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  background: $bg-color;
+  width: 100%;
+  height: 100vh;
+  .sidebar-container-wrapper {
+    display: flex;
+    flex: 1 0 auto;
+    height: calc(100vh - 60px);
+  }
+}

@@ -1,0 +1,12 @@
+@import "./../styles/variables";
+.button-component {
+  background: $primary-color;
+  border-radius: 5px;
+  padding: 10px 25px;
+  color: white;
+  cursor: pointer;
+  &:disabled {
+    cursor: not-allowed;
+    background: $grey-60;
+  }
+}
