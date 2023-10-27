@@ -1,3 +1,4 @@
+import "./countryCard.scss";
 const CountryCard = ({ data, isFavorite = false, onFavBtnClick, onClick }) => {
   return (
     <div key={data.id} className="card-item" onClick={onClick}>

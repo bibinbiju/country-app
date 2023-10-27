@@ -7,7 +7,7 @@ import { useCallback, useMemo, useState } from "react";
 const useForm = (dataModel = {}) => {
   const [form, setForm] = useState(dataModel);
   const validateInputField = useCallback((inputField) => {
-    const newInputField = Object.assign(inputField);
+    const newInputField = { ...inputField };
     newInputField.valid = true;
     newInputField.errorMessage = "";
     if (newInputField?.disabled) {

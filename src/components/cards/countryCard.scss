@@ -1,0 +1,39 @@
+@import "./../../styles/variables";
+.card-item {
+  padding: 1rem;
+  background: $primary-color;
+  border-radius: 5px;
+  width: 200px;
+  box-shadow: 5px 5px 20px $grey-80;
+  cursor: pointer;
+  .title-wrapper {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    h4 {
+      font-size: 0.96rem;
+      color: $white-color;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    i {
+      color: $white-color;
+    }
+    margin-bottom: 0.5rem;
+  }
+  .desc {
+    color: $white-color;
+    .item-group {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.8rem;
+      h5 {
+        font-size: 0.81rem;
+        width: 40%;
+      }
+    }
+  }
+}

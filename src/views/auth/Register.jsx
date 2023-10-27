@@ -6,6 +6,7 @@ import { requiredRule, validateEmail } from "../../utils/validationRules";
 import { STORAGE_KEYS, Storage } from "../../utils/storage";
 import Button from "../../components/Button";
 import { NavLink } from "react-router-dom";
+import { Toast } from "../../components/toast/ToastRoot";
 const formObject = {
   name: {
     validationRules: [requiredRule("Name")],
@@ -52,10 +53,10 @@ const Register = () => {
       (d) => d.email?.toLowerCase?.() === params?.email?.toLowerCase?.()
     );
     if (chkUserExist) {
-      alert("User already exist!🤦‍♂️");
+      Toast.warning("User already exist!🤦‍♂️");
     } else {
       Storage.setItem(STORAGE_KEYS.APP_USERS, [...users, params]);
-      alert("User registered successfully!😊");
+      Toast.success("User registered successfully!😊");
     }
   }, [form]);
   return (

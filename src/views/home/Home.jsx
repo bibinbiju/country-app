@@ -5,12 +5,16 @@ import Auth from "../../utils/auth";
 import { CountryCard } from "../../components/cards";
 import { ModalService } from "../../components/modal/ModalRoot";
 import CountryDetail from "./CountryDetail";
+import Pagination from "../../components/pagination/Pagination";
+const PAGE_LIMIT = 5;
+
 const Home = () => {
   const [countriesList, setCountriesList] = useState([]);
-  const [selectedContinent, setSelectedContinent] = useState(null);
+  const [selectedContinent, setSelectedContinent] = useState("Africa");
   const [favorites, setFavorites] = useState(
     Auth.getCurrentUserDetail()?.favorites || []
   );
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     let ignore = false;
@@ -56,7 +60,13 @@ const Home = () => {
     setFavorites(favorites);
     Auth.updateCurrentUser({ favorites });
   };
-
+  const selectListData = useMemo(() => {
+    const startOffset = page - 1 <= 0 ? 0 : (page - 1) * PAGE_LIMIT;
+    return selectedContinentCountriesList.slice(
+      startOffset,
+      startOffset + PAGE_LIMIT
+    );
+  }, [page, selectedContinentCountriesList]);
   return (
     <div className="home-page-wrapper">
       <h3>Home</h3>
@@ -67,7 +77,10 @@ const Home = () => {
               <li
                 key={eachItem}
                 className={`${selectedContinent === eachItem && "active"}`}
-                onClick={() => setSelectedContinent(eachItem)}
+                onClick={() => {
+                  setSelectedContinent(eachItem);
+                  setPage(1);
+                }}
               >
                 {eachItem}
               </li>
@@ -76,7 +89,7 @@ const Home = () => {
         </div>
         <div className="country-detail">
           <div className="card-wrapper">
-            {selectedContinentCountriesList.map((eachItem) => (
+            {selectListData.map((eachItem) => (
               <CountryCard
                 key={eachItem.id}
                 data={eachItem}
@@ -93,7 +106,14 @@ const Home = () => {
               />
             ))}
           </div>
+          <Pagination
+            page={page}
+            limit={PAGE_LIMIT}
+            totalCount={selectedContinentCountriesList?.length || 0}
+            onChange={setPage}
+          />
         </div>
+        <dialog>fefdhdf</dialog>
       </div>
     </div>
   );

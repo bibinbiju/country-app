@@ -1,0 +1,27 @@
+@import "./../../styles/variables";
+.toast-window-wrapper {
+  position: fixed;
+  right: 20px;
+  top: 10px;
+  z-index: 99;
+
+  .toast-container {
+    display: flex;
+    flex-direction: row;
+    font-size: 0.7rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    background: $white-color;
+    padding: 0.5rem;
+    border-radius: 5px;
+    box-shadow: 5px 5px 20px $grey-80;
+    i {
+      font-size: 0.8rem;
+    }
+    .close-icon {
+      cursor: pointer;
+    }
+    margin-bottom: 0.5rem;
+  }
+}

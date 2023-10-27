@@ -4,6 +4,8 @@ import useForm from "../../hooks/useForm";
 import { requiredRule, validateEmail } from "../../utils/validationRules";
 import Button from "../../components/Button";
 import Auth from "../../utils/auth";
+import "./profile.scss";
+import { Toast } from "../../components/toast/ToastRoot";
 const formObject = {
   name: {
     validationRules: [requiredRule("Name")],
@@ -38,19 +40,24 @@ const Profile = () => {
     const currentUser = Auth.getCurrentUserDetail();
     const updateData = {};
     for (const each in currentUser) {
-      console.log("dfkjhbvhfvbfd", each);
       updateData[each] = { value: currentUser[each] };
     }
-    console.log({ updateData });
     updateForm(updateData);
     return () => {
       ignore = true;
     };
   }, [updateForm]);
-  const updateUser = () => {};
+  const updateUser = () => {
+    const updateData = {};
+    for (const each in form) {
+      updateData[each] = form[each]?.value || "";
+    }
+    Auth.updateCurrentUser(updateData);
+    Toast.success("Profile updated successfully!! 😊");
+  };
   return (
     <div className="profile-wrapper">
-      <h2>Profile</h2>
+      <h3>Profile</h3>
       <div className="form-content-wrapper">
         <div className="form-group">
           <label htmlFor="name">Name</label>
